@@ -30,63 +30,62 @@
                 }
             }
             
-.blink_text {
--webkit-animation-name: blinker;
--webkit-animation-duration: 1s;
--webkit-animation-timing-function: linear;
--webkit-animation-iteration-count: infinite;
+            .blink_text {
+            -webkit-animation-name: blinker;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
 
--moz-animation-name: blinker;
--moz-animation-duration: 1s;
--moz-animation-timing-function: linear;
--moz-animation-iteration-count: infinite;
+            -moz-animation-name: blinker;
+            -moz-animation-duration: 1s;
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
 
- animation-name: blinker;
- animation-duration: 1s;
- animation-timing-function: linear;
- animation-iteration-count: infinite;
+            animation-name: blinker;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
 
- color:red;
- font-size:16px;
- text-align: center;
-}
+            color:red;
+            font-size:16px;
+            text-align: center;
+            }
 
-@-moz-keyframes blinker {  
- 0% { opacity: 1.0; }
- 50% { opacity: 0.0; }
- 100% { opacity: 1.0; }
- }
+            @-moz-keyframes blinker {  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.0; }
+            100% { opacity: 1.0; }
+            }
 
-@-webkit-keyframes blinker {  
- 0% { opacity: 1.0; }
- 50% { opacity: 0.0; }
- 100% { opacity: 1.0; }
- }
+            @-webkit-keyframes blinker {  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.0; }
+            100% { opacity: 1.0; }
+            }
 
-@keyframes blinker {  
- 0% { opacity: 1.0; }
- 50% { opacity: 0.0; }
- 100% { opacity: 1.0; }
- }
+            @keyframes blinker {  
+            0% { opacity: 1.0; }
+            50% { opacity: 0.0; }
+            100% { opacity: 1.0; }
+            }
 
- body{
-    background-image: url(dist/img/20180309_161009.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-   background-position: top;
- }
+            body{
+                background-image: url('dist/img/20180309_161009.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: top;
+            }
 
- #login{
-    border: 1px solid white;
-    background-color: white;
-    padding: 3%;
-    border-radius: 10px;
- }
+            #login{
+                border: 1px solid white;
+                background-color: white;
+                padding: 3%;
+                border-radius: 10px;
+            }
 
         </style>
     </head>
     <body>
-        
         <section class="vh-100">
             <div class="container-fluid h-custom">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -94,7 +93,7 @@
                         
                     </div>
                     <div id="login" class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <form action="" method="post" id = 'form'>
+                        <form action="/sessions" method="post" id = 'form'>
                             <div class="divider d-flex align-items-center my-4">
                                 <p class="text-center fs-1 mx-3 mb-0">LOGIN</p>
                             </div>
@@ -114,21 +113,11 @@
                                 <button class="btn btn-success btn-lg" type="submit" name="login">Login</button>
                             </div>
                         </form>
-                        <!--TO REMOVE, for sample use ONLY!!! -->
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                document.querySelector('#form').onsubmit = (event) =>{
-                                  event.preventDefault();
-                                    window.location = 'registrar_dashboard.php';
-                                }
-                            })
-                        </script>
                     </div>
                 </div>
             </div>
             
         </section>
-        
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>

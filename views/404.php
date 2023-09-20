@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
@@ -130,95 +129,11 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card card-navy ">
-              <div class="card-body">
-                <div class="d-flex justify-content-center form-group">
-                  <form>
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <label for="firstName">Name</label>
-                        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name">
-                      </div>
-                      <div class="col-sm-4">
-                      <label for="lastName" style="visibility:hidden">surname</label>
-                        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Surname">
-                      </div>
-                      <div class="col-sm-4">
-                        <label for="nickname">Nickname</label>
-                        <input type="text" name="nickname"id="nickname"class="form-control" placeholder="NickName">
-                      </div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-sm-6">
-                        <label for="age">Age</label>
-                        <input type = "number" name="age" id="age"placeholder="Age" class="form-control">
-                      </div>
-                      <div class="col-sm-6">
-                        <label for="Contact">Contact Number</label>
-                        <input type = "number" name="Contact" id="Contact"placeholder="Contact Number" class="form-control">
-                      </div>
-                        
-                    </div>
-                    <div class="row">
-                          <div class="col-sm-6">
-                            <label for="Circuit_id" class="form-label">Datalist example</label>
-                            <input class="form-control" list="Circuit" id="Circuit_id" placeholder="Type to search...">
-                            <datalist id="Circuit">
-                                <option value="Polomolok Circuit">
-                                <option value="Gensan Circuit">
-                                <option value="NorSan Circuit">
-                                <option value="KorLuTan Circuit">
-                                <option value="Sample Circuit">
-                            </datalist>
-                          </div>
-                          <div class="col-sm-6">
-                            <label for="Church_id" class="form-label">Church</label>
-                              <input class="form-control" list="Church" id="Church_id" placeholder="Type to search...">
-                              <datalist id="Church">
-                                <option value="Palkan Alliance Church">
-                                <option value="Palkan Alliance Church">
-                                <option value="Palkan Alliance Church">
-                                <option value="Palkan Alliance Church">
-                                <option value="Sample Alliance Church">
-                              </datalist>
-                          </div>
-                        </div>
-                        <label class="radio-inline mt-3">
-                          <input type="radio" name="optradio" checked>Young People
-                        </label>
-                        <label class="radio-inline ml-3 mt-3">
-                          <input type="radio" name="optradio">Youth Worker
-                        </label>
-                        <button type="button" class="btn btn-primary btn-block mt-5">Register</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
+      <h1>Sorry, Page Not Found. <a href="/">go back Home</a></h1>
     </section>
     <!-- /.content -->
   </div>
