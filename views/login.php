@@ -101,12 +101,18 @@
                                 <input type="text" id="form3Example3" class="form-control form-control-lg"
                                 placeholder="Enter username" name="username" autofocus='autofocus' required />
                                 <label class="form-label" for="form3Example3">Username</label>
+                                <?php if (isset($errors['username'])) : ?>
+                                    <p class="fs-6 text-danger"><?= $errors['username'] ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div class="form-outline mb-3">
                                 <input type="password" id="form3Example4" class="form-control form-control-lg"
                                 placeholder="Enter password"  name="password" />
                                 <label class="form-label" for="form3Example4">Password</label>
+                                <?php if (isset($errors['password'])) : ?>
+                                    <p class="fs-6 text-danger"><?= $errors['password'] ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div class="d-grid gap-2">

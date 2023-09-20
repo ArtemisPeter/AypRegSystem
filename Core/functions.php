@@ -46,6 +46,6 @@ function abort($code = 404)
 function login($user)
 {
     $_SESSION['user'] = [
-        'email' => $user['email']
+        'username' => $user['username']
    ];
 }
