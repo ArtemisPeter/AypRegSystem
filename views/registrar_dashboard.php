@@ -135,37 +135,53 @@ require('partials/AdminLTE3/head.php');
                     <div class="row">
                       <div class="col-sm-4">
                         <label for="firstName">Name</label>
-                        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
+                        <input type="text" name="firstName" id="firstName" class="form-control" 
+                        value="<?= isset($_POST['firstName']) ? htmlspecialchars($_POST['firstName']) : '' ?>"
+                        placeholder="First Name" required>
                         <?php if(isset($errors['firstName'])): ?>
                           <p class="fs-6 text-danger"><?= $errors['firstName'] ?></p>
                         <?php endif ?>
                       </div>
+
                       <div class="col-sm-4">
                       <label for="lastName" style="visibility:hidden">surname</label>
-                        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Surname" required>
+                        <input type="text" name="lastName" id="lastName" class="form-control" 
+                        value="<?= isset($_POST['lastName']) ? htmlspecialchars($_POST['lastName']) : '' ?>"
+                        placeholder="Surname" required>
                         <?php if(isset($errors['lastName'])): ?>
                           <p class="fs-6 text-danger"><?= $errors['lastName'] ?></p>
                         <?php endif ?>
                       </div>
+
                       <div class="col-sm-4">
                         <label for="nickname">Nickname</label>
-                        <input type="text" name="nickname"id="nickname"class="form-control" placeholder="NickName">
+                        <input type="text" name="nickname" id="nickname"class="form-control" 
+                        value="<?= isset($_POST['nickname']) ? htmlspecialchars($_POST['nickname']) : '' ?>"
+                        placeholder="NickName">
                         <?php if(isset($errors['nickname'])): ?>
                           <p class="fs-6 text-danger"><?= $errors['nickname'] ?></p>
                         <?php endif ?>
                       </div>
                     </div>
+
                     <div class="row mt-3">
                       <div class="col-sm-6">
                         <label for="age">Age</label>
-                        <input type = "number" name="age" id="age"placeholder="Age" class="form-control" required>
+                        <input type = "number" name="age" id="age"
+                        value="<?= isset($_POST['age']) ? htmlspecialchars($_POST['age']) : '' ?>"
+                        placeholder="Age" class="form-control" required>
+
                         <?php if(isset($errors['age'])): ?>
                           <p class="fs-6 text-danger"><?= $errors['age'] ?></p>
                         <?php endif ?>
+
                       </div>
+
                       <div class="col-sm-6">
                         <label for="Contact">Contact Number</label>
-                        <input type = "text" name="contact" id="Contact"placeholder="Contact Number" class="form-control" required>
+                        <input type = "text" name="contact" id="Contact" 
+                        value="<?= isset($_POST['contact']) ? htmlspecialchars($_POST['contact']) : '' ?>"
+                        placeholder="Contact Number" class="form-control" required>
                         <?php if(isset($errors['contact'])): ?>
                           <p class="fs-6 text-danger"><?= $errors['contact'] ?></p>
                         <?php endif ?>
@@ -175,7 +191,9 @@ require('partials/AdminLTE3/head.php');
                     <div class="row">
                           <div class="col-sm-6">
                             <label for="Circuit_id" class="form-label">Circuit</label>
-                            <input class="form-control" name="circuit" list="Circuit" id="Circuit_id" placeholder="Type to search..." required>
+                            <input class="form-control" name="circuit" list="Circuit" id="Circuit_id" 
+                            value="<?= isset($_POST['circuit']) ? htmlspecialchars($_POST['circuit']) : '' ?>"
+                            placeholder="Type to search..." required>
                             <datalist id="Circuit">
                               <?php foreach($circuits as $circuit): ?>
                                 <option value="<?= $circuit['Circuit'] ?>">
@@ -187,7 +205,9 @@ require('partials/AdminLTE3/head.php');
                           </div>
                           <div class="col-sm-6">
                             <label for="Church_id" class="form-label">Church</label>
-                              <input class="form-control" list="Church" name="church" id="Church_id" placeholder="Type to search..." required>
+                              <input class="form-control" list="Church" name="church" id="Church_id" 
+                              value="<?= isset($_POST['church']) ? htmlspecialchars($_POST['church']) : '' ?>"
+                              placeholder="Type to search..." required>
                               <datalist id="Church">
                                 <?php foreach($churches as $church): ?>
                                   <option value="<?= $church['Church'] ?>">
@@ -199,12 +219,17 @@ require('partials/AdminLTE3/head.php');
                           </div>
                         </div>
                         <label class="radio-inline mt-3">
-                          <input type="radio" value="1" name="delegateType" checked>Young People
+                          <input type="radio" value="1" name="delegateType" 
+                          <?= isset($_POST['delegateType']) ? ($_POST['delegateType'] !== 2 ? 'checked': '') : 'checked' ?> >Young People
                         </label>
                         <label class="radio-inline ml-3 mt-3">
-                          <input type="radio" value="2" name="delegateType">Youth Worker
+                          <input type="radio" value="2" name="delegateType"
+                          <?= isset($_POST['delegateType']) ? ($_POST['delegateType'] === 2 ? 'checked': '') : '' ?> >Youth Worker
                         </label>
                         <button type="submit" class="btn btn-primary btn-block mt-5">Register</button>
+                        <?php if(isset($errors['delegate'])): ?>
+                                <p class="fs-6 text-danger"><?= $errors['delegate'] ?></p>
+                        <?php endif ?>
                   </form>
                 </div>
               </div>

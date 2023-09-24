@@ -23,4 +23,8 @@ class Validator
      {
           return is_numeric($value);
      }
+     public static function age($value, $min = 1, $max = INF)
+     {
+          return $value >= $min && $value <= $max;
+     }
 }

@@ -31,3 +31,13 @@ added number and contact validators.
 #### sarey kuya neil hehe
 
 kuya neil sarey gihimo nakong dev logs ang readme HAHAHAHAHA
+
+### September 22, 5:00 PM
+
+#### validation
+
+updated the validation, gidungagan ug validation sa age para dili mag dawat ug negative input.
+
+#### gamay ra
+
+gamay ra ang changes kay nag fellowship dayun mi and na busy
