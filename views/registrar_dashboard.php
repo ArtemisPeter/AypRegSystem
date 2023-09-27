@@ -228,7 +228,10 @@ require('partials/AdminLTE3/head.php');
                         </label>
                         <button type="submit" class="btn btn-primary btn-block mt-5">Register</button>
                         <?php if(isset($errors['delegate'])): ?>
-                                <p class="fs-6 text-danger"><?= $errors['delegate'] ?></p>
+                          <p class="fs-6 text-danger"><?= $errors['delegate'] ?></p>
+                        <?php endif ?>
+                        <?php if(isset($success)): ?>
+                          <p class="fs-6 text-success"><?= $success ?></p>
                         <?php endif ?>
                   </form>
                 </div>

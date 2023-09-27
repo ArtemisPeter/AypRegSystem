@@ -64,16 +64,21 @@ $errors = [];
      
 // check if delegate already exist
      // if yes, error['delegate']
-     $delegateExists = $db->query('SELECT * FROM tbl_delegate WHERE fname = :firstName && lname = :lastName', [
-          'firstName' => $firstNameInput,
-          'lastName' => $lastNameInput
-     ])->find();
+     $delegateDB = $db->query('SELECT * FROM tbl_delegate')->get();
+     $delegateExists = False;
+     foreach($delegateDB as $delegate) {
+          if(strtoupper($delegate['fname']) === strtoupper($firstNameInput) && strtoupper($delegate['lname']) === strtoupper($lastNameInput)) {
+               $delegateExists = True;
+               $existingDelegate = $delegate;
+               break;
+          }
+     }
      if($delegateExists)
      {
           $errors['delegate'] = "Delegate already registered.";
-          if($delegateExists['church_id'] !== $church_id){
+          if($existingDelegate['church_id'] !== $church_id){
                $delegateExistsChurch = $db->query("SELECT * FROM tbl_church WHERE church_id = :church_id", [
-                    'church_id' => $delegateExists['church_id']
+                    'church_id' => $existingDelegate['church_id']
                ])->find();
                $errors['delegate'] = "Delegate already registered at: <b> {$delegateExistsChurch['Church']}</b>.";
           }
@@ -83,7 +88,20 @@ if(!empty($errors))
      return view('registrar_dashboard.php', [
           'errors' => $errors
      ]);
+     exit();
 }
 // insert into database
-dd('Delegate registered!');
-// $db->query("INSERT INTO tbl_users (fname, lname, nickname, age, del_type)");
+$db->query("INSERT INTO tbl_delegate (fname, lname, nickname, age, del_type_id, church_id, contact_num) 
+VALUES (:firstName, :lastName, :nickname, :age, :delegateType, :churchId, :contact)", [
+     "firstName" => $firstNameInput,
+     "lastName" => $lastNameInput,
+     "nickname" => $nicknameInput,
+     "age" => $ageInput,
+     "delegateType" => $delegateTypeInput,
+     "churchId" => $church_id,
+     "contact" => $contactInput
+]);
+$success = "Delegate registered successfuly!";
+return view('registrar_dashboard.php', [
+     'success' => $success
+]);

@@ -41,3 +41,13 @@ updated the validation, gidungagan ug validation sa age para dili mag dawat ug n
 #### gamay ra
 
 gamay ra ang changes kay nag fellowship dayun mi and na busy
+
+### September 27, 11:26 AM
+
+#### updated the delegate validation
+
+case not sensetive na ang pag validate kung exising ba ang delegate or dili
+
+#### registration module complete
+
+done, maka register na and all AHAHAHAHAAH.
