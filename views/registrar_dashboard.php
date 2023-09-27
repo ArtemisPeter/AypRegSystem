@@ -1,30 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-</head>
+<?php
+require('partials/AdminLTE3/head.php');
+?>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -71,7 +47,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><?= $_SESSION['user']['username'] ?></a>
         </div>
       </div>
 
@@ -155,63 +131,108 @@
             <div class="card card-navy ">
               <div class="card-body">
                 <div class="d-flex justify-content-center form-group">
-                  <form>
+                  <form action="/register" method="POST">
                     <div class="row">
                       <div class="col-sm-4">
                         <label for="firstName">Name</label>
-                        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name">
+                        <input type="text" name="firstName" id="firstName" class="form-control" 
+                        value="<?= isset($_POST['firstName']) ? htmlspecialchars($_POST['firstName']) : '' ?>"
+                        placeholder="First Name" required>
+                        <?php if(isset($errors['firstName'])): ?>
+                          <p class="fs-6 text-danger"><?= $errors['firstName'] ?></p>
+                        <?php endif ?>
                       </div>
+
                       <div class="col-sm-4">
                       <label for="lastName" style="visibility:hidden">surname</label>
-                        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Surname">
+                        <input type="text" name="lastName" id="lastName" class="form-control" 
+                        value="<?= isset($_POST['lastName']) ? htmlspecialchars($_POST['lastName']) : '' ?>"
+                        placeholder="Surname" required>
+                        <?php if(isset($errors['lastName'])): ?>
+                          <p class="fs-6 text-danger"><?= $errors['lastName'] ?></p>
+                        <?php endif ?>
                       </div>
+
                       <div class="col-sm-4">
                         <label for="nickname">Nickname</label>
-                        <input type="text" name="nickname"id="nickname"class="form-control" placeholder="NickName">
+                        <input type="text" name="nickname" id="nickname"class="form-control" 
+                        value="<?= isset($_POST['nickname']) ? htmlspecialchars($_POST['nickname']) : '' ?>"
+                        placeholder="NickName">
+                        <?php if(isset($errors['nickname'])): ?>
+                          <p class="fs-6 text-danger"><?= $errors['nickname'] ?></p>
+                        <?php endif ?>
                       </div>
                     </div>
+
                     <div class="row mt-3">
                       <div class="col-sm-6">
                         <label for="age">Age</label>
-                        <input type = "number" name="age" id="age"placeholder="Age" class="form-control">
+                        <input type = "number" name="age" id="age"
+                        value="<?= isset($_POST['age']) ? htmlspecialchars($_POST['age']) : '' ?>"
+                        placeholder="Age" class="form-control" required>
+
+                        <?php if(isset($errors['age'])): ?>
+                          <p class="fs-6 text-danger"><?= $errors['age'] ?></p>
+                        <?php endif ?>
+
                       </div>
+
                       <div class="col-sm-6">
                         <label for="Contact">Contact Number</label>
-                        <input type = "number" name="Contact" id="Contact"placeholder="Contact Number" class="form-control">
+                        <input type = "text" name="contact" id="Contact" 
+                        value="<?= isset($_POST['contact']) ? htmlspecialchars($_POST['contact']) : '' ?>"
+                        placeholder="Contact Number" class="form-control" required>
+                        <?php if(isset($errors['contact'])): ?>
+                          <p class="fs-6 text-danger"><?= $errors['contact'] ?></p>
+                        <?php endif ?>
                       </div>
                         
                     </div>
                     <div class="row">
                           <div class="col-sm-6">
-                            <label for="Circuit_id" class="form-label">Datalist example</label>
-                            <input class="form-control" list="Circuit" id="Circuit_id" placeholder="Type to search...">
+                            <label for="Circuit_id" class="form-label">Circuit</label>
+                            <input class="form-control" name="circuit" list="Circuit" id="Circuit_id" 
+                            value="<?= isset($_POST['circuit']) ? htmlspecialchars($_POST['circuit']) : '' ?>"
+                            placeholder="Type to search..." required>
                             <datalist id="Circuit">
-                                <option value="Polomolok Circuit">
-                                <option value="Gensan Circuit">
-                                <option value="NorSan Circuit">
-                                <option value="KorLuTan Circuit">
-                                <option value="Sample Circuit">
+                              <?php foreach($circuits as $circuit): ?>
+                                <option value="<?= $circuit['Circuit'] ?>">
+                              <?php endforeach; ?>
                             </datalist>
+                            <?php if(isset($errors['circuit'])): ?>
+                              <p class="fs-6 text-danger"><?= $errors['circuit'] ?></p>
+                            <?php endif ?>
                           </div>
                           <div class="col-sm-6">
                             <label for="Church_id" class="form-label">Church</label>
-                              <input class="form-control" list="Church" id="Church_id" placeholder="Type to search...">
+                              <input class="form-control" list="Church" name="church" id="Church_id" 
+                              value="<?= isset($_POST['church']) ? htmlspecialchars($_POST['church']) : '' ?>"
+                              placeholder="Type to search..." required>
                               <datalist id="Church">
-                                <option value="Palkan Alliance Church">
-                                <option value="Palkan Alliance Church">
-                                <option value="Palkan Alliance Church">
-                                <option value="Palkan Alliance Church">
-                                <option value="Sample Alliance Church">
+                                <?php foreach($churches as $church): ?>
+                                  <option value="<?= $church['Church'] ?>">
+                                <?php endforeach; ?>
                               </datalist>
+                              <?php if(isset($errors['church'])): ?>
+                                <p class="fs-6 text-danger"><?= $errors['church'] ?></p>
+                              <?php endif ?>
                           </div>
                         </div>
                         <label class="radio-inline mt-3">
-                          <input type="radio" name="optradio" checked>Young People
+                          <input type="radio" value="1" name="delegateType" 
+                          <?= isset($_POST['delegateType']) ? ($_POST['delegateType'] !== 2 ? 'checked': '') : 'checked' ?> >Young People
                         </label>
                         <label class="radio-inline ml-3 mt-3">
-                          <input type="radio" name="optradio">Youth Worker
+                          <input type="radio" value="2" name="delegateType"
+                          <?= isset($_POST['delegateType']) ? ($_POST['delegateType'] === 2 ? 'checked': '') : '' ?> >Youth Worker
                         </label>
-                        <button type="button" class="btn btn-primary btn-block mt-5">Register</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-5">Register</button>
+                        <?php if(isset($errors['delegate'])): ?>
+                          <p class="fs-6 text-danger"><?= $errors['delegate'] ?></p>
+                        <?php endif ?>
+                        <?php if(isset($success)): ?>
+                          <p class="fs-6 text-success"><?= $success ?></p>
+                        <?php endif ?>
                   </form>
                 </div>
               </div>
